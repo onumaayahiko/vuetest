@@ -1,0 +1,180 @@
+/* Scss Document */
+
+
+@import "../css/variables";
+@import "../css/mixin";
+
+/* フッター */
+footer {
+/*
+	position: relative;
+	z-index: 1;
+*/
+	display: block;
+	max-width: $window-size-xlg;
+	margin: 0 auto;
+	padding: $padding-lg;
+	
+	
+	background: $mono-ultralight;/* 確認用 */
+	border: 1px solid;/* 確認用 */
+	.container {
+		background: $mono-light;/* 確認用 */
+		border: 1px solid;/* 確認用 */
+		
+		// position: relative;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(0, auto));
+		gap: $margin-lg;
+		justify-content: center;
+		// align-content: center;
+	}
+
+	// ナビゲーション
+	.menu-wrap {
+		grid-column: 1;
+		grid-row: 1;
+	}
+	.footer-nav {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(0, auto));
+		gap: $margin-xlg;
+		justify-content: flex-start;
+		align-items: flex-end;
+		// align-content: flex-end;
+		// padding: $padding-sm 0;
+	}
+	// マテックランドロゴ
+	.logo-wrap {
+		grid-column: 1;
+		grid-row: 2;
+
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, auto));
+		// grid-template-rows: repeat(auto-fit, minmax(0, auto));
+		gap: $margin-md;
+		justify-content: space-between;
+		align-items: flex-end;
+		// align-content: center;
+	}
+	.logo {
+		width: 100%;
+		max-width: 300px;
+	}
+	// ボーダーライン
+	.border-line {
+		grid-column: 2;
+		grid-row: 1 / 3;
+
+		width: 1px;
+		height: 100%;
+		background: black;
+	}
+	// マテックグループリンク
+	.group-wrap {
+		grid-column: 3;
+		grid-row: 1 / 3;
+
+		ul {
+			margin-top: $margin-xsm;
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, auto));
+			// grid-template-rows: repeat(auto-fit, minmax(0, auto));
+			gap: $margin-sm;
+			justify-content: flex-start;
+		}
+	}
+	.group-wrap li{
+		max-width: 150px;
+		height: 50px;
+		a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			border-radius: $round-sm;
+			@include btn-color(white, white, white);
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			padding: 0 $padding-md;
+		}
+	}
+
+	
+	@media screen and (max-width: $window-size-md) {
+		padding: $padding-md $padding-md 80px $padding-md;
+		.container {
+			gap: $padding-md;
+		}
+		.menu-wrap {
+			grid-column: 1;
+			grid-row: 1;
+		}
+		.footer-nav {
+			justify-content: center;
+		}
+		.logo-wrap {
+			grid-column: 1;
+			grid-row: 2;
+	
+			grid-template-columns: repeat(1, minmax(0, auto));
+			gap: $margin-sm;
+			justify-content: center;
+			justify-items: center;
+		}
+		.border-line {
+			grid-column: 1;
+			grid-row: 3;
+	
+			width: 100%;
+			height: 1px;
+		}
+		.group-wrap {
+			grid-column: 1;
+			grid-row: 4;
+	
+			ul {
+				grid-template-columns: repeat(4, minmax(0, auto));
+				gap: $margin-xsm;
+			}
+		}
+		.group-wrap li{
+			img {
+				padding: 0 20%;
+			}
+		}
+	}
+	@media screen and (max-width: $window-size-sm) {
+		padding: $padding-sm $padding-sm 80px $padding-sm;
+		.footer-nav {
+			grid-template-columns: repeat(1, minmax(0, auto));
+			gap: $margin-md	;
+		}
+		.group-wrap li{
+			img {
+				padding: 0 10%;
+			}
+		}
+	}
+
+}
+
+
+
+/*		display: flex;
+		flex-flow: row wrap;
+	  	align-items: center;
+	 	justify-content: space-between;*/
+		
+/*
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(0, auto));
+		gap: $margin-lg;
+		justify-content: center;
+		align-content: center;
+*/
+

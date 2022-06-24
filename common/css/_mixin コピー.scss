@@ -1,0 +1,411 @@
+/* Scss Document */
+
+
+@import "variables";
+
+
+// コンテンツヘッダー
+// イラストタイプ
+@mixin content-header-ill{
+	.main-visual{
+		position: relative;
+		img{
+			object-fit: cover;
+			width: 100%;
+			height: 450px;
+		}
+		h2{
+			position: absolute;
+			display: block;
+			width: 100%;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			text-align: center;
+			text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+			line-height: 1.5em;
+			font-size: 40px;
+			color: white;
+			font-family: 'Noto Serif JP', serif;
+			font-weight: bold;
+			background: rgba(0, 0, 0, 0.5);
+			box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.5);
+		}
+		small{
+			z-index: 998;
+			position: absolute;
+			right: 15px;
+			bottom: 10px;
+			font-size: $font-size-sm;
+			color: white;
+		}
+	}
+	.overview{
+		width: 100%;
+		max-width: $window-size-xlg;
+		margin: 40px auto 0 auto;
+		padding: 0 40px;
+		text-align: center;
+		p{
+			text-align: left;
+		}
+	}
+	@media screen and (max-width: $window-size-lg) {
+		.overview{
+			margin: 20px auto 0 auto;
+			padding: 0 20px;
+		}
+	}
+	@media screen and (max-width: $window-size-sm) {
+		.main-visual{
+			img{
+				height: 250px;
+			}
+			h2{
+				font-size: 30px;
+				box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
+			}
+		}
+		.overview{
+			margin: 15px auto 0 auto;
+			padding: 0 15px;
+		}
+	}
+}
+
+// 画像タイプ
+@mixin content-header-img{
+	.main-visual{ // メインビジュアル
+		position: relative;
+		img{
+			object-fit: cover;
+			width: 100%;
+			height: 450px;
+		}
+		h2{
+			position: absolute;
+			display: block;
+			width: 95%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+			line-height: 1em;
+			font-size: 40px;
+			color: white;
+			font-family: 'Noto Serif JP', serif;
+			font-weight: bold;
+			span{
+				display: inline-block;
+				vertical-align: baseline;
+			}
+		}
+	}
+	.overview{
+		width: 100%;
+		max-width: $window-size-xlg;
+		margin: 40px auto 0 auto;
+		padding: 0 40px;
+	}
+	
+	@media screen and (max-width: $window-size-lg) {
+		.overview{
+			padding: 0 20px;
+		}
+	}
+	@media screen and (max-width: $window-size-sm) {
+		.main-visual{ // メインビジュアル
+			img{
+				height: 250px;
+			}
+			h2{
+				font-size: $font-size-lg;
+			}
+		}
+		.overview{
+			padding: 0 15px;
+		}
+	}
+}
+
+// 通常タイプ
+@mixin content-header-normal{
+	.main-visual{
+		position: relative;
+		img{
+			object-fit: cover;
+			width: 100%;
+			height: 200px;
+		}
+		h2{
+			position: absolute;
+			display: block;
+			width: 95%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			line-height: 1em;
+			font-size: $font-size-xlg;
+			font-family: 'Noto Serif JP', serif;
+			color: #333;
+			span{
+				display: inline-block;
+				vertical-align: baseline;
+			}
+		}
+	}
+	.overview{
+		width: 100%;
+		max-width: $window-size-xlg;
+		margin: 40px auto 0 auto;
+		padding: 0 40px;
+
+	}
+	@media screen and (max-width: $window-size-lg) {
+		.overview{
+			margin: 20px auto 0 auto;
+			padding: 0 20px;
+		}
+	}
+	@media screen and (max-width: $window-size-sm) {
+		.main-visual{ // メインビジュアル
+			img{
+				height: 150px;
+			}
+			h2{
+				font-size: $font-size-lg;
+			}
+		}
+		.overview{
+			margin: 15px auto 0 auto;
+			padding: 0 15px;
+		}
+	}
+}
+
+
+// 2カラムレイアウト 
+@mixin layout-col2{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	> div{
+		width: 50%;
+		&:first-of-type img{
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+		&:last-of-type > div{
+			padding: 40px; 
+			max-width: calc(#{$window-size-xlg} / 2);
+		}
+	}
+}
+
+
+/* レスポンシブテーブル */
+@mixin responsive-table($width){
+	display: flex;
+	flex-wrap: wrap;
+	border-top: 1px solid #CCC;
+	> dt, > dd {
+		padding: 20px;
+		border-bottom: 1px solid #CCC;
+		border-right: 1px solid #CCC;
+	}
+	> dt {
+		width: $width;
+		background: #F5F5F5;
+		border-left: 1px solid #CCC;
+	}	
+	> dd {
+		width: -webkit-calc(100% - #{$width});
+		width: calc(100% - #{$width});
+	}
+}
+
+@mixin responsive-table-sm{
+	border: none;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	> dt, > dd {
+		display: block;
+		width: 100%;
+		padding: 10px;
+		border: none;	
+	}
+	> dt {
+		background: #F5F5F5;
+		border-top: 1px solid #CCC;
+		border-bottom: 1px solid #CCC;
+		text-align: center;
+		letter-spacing: 0.5em;
+		padding: 5px 0;
+	}
+	> dd {
+		margin-bottom: 15px;
+	}
+}
+
+
+/* カードレイアウト */
+@mixin layout-card-col2{
+	display: flex;
+	flex-wrap: wrap;
+	li{
+		width: 48%;
+		margin: 4% 4% 0 0;
+		padding-bottom: 60px;
+		&:nth-child(even){
+			margin-right: 0;
+		}
+		position: relative;
+		box-shadow: 2px 2px 10px 0 rgba(0, 0 , 0, 0.2);
+		background: white;
+		> img{
+			width: 100%;
+		}
+		> div{
+			margin: 20px;
+			h3 {
+				font-size: $font-size-lg;
+			}
+		}
+		> a{
+			position: absolute;
+			left: 50%;
+			bottom: 30px;
+			transform: translateX(-50%);
+		}
+	}
+	@media screen and (max-width: $window-size-sm) {
+		li{
+			width: 100%;
+			margin: 30px 0 0 0;
+			> div{
+				margin: 15px;
+			}
+		}
+	}
+}
+
+
+
+/* コンテンツカード */
+@mixin content-card{
+	/*width: 100%;
+	li{
+		display: inline-block;
+		a{
+			display: block;
+			width: 100%;
+			padding: 60px 0;
+			text-align: center;
+			background: #CCC;
+			&:hover{
+				opacity: 0.7;
+			}
+		}
+	}*/
+}
+
+/*
+14px bold padding(10 20)
+18px bold padding(15 30)
+25px bold padding(20 40)
+*/
+
+/* ボタン */
+@mixin btn-lg($color, $bg-color){
+	display: inline-block;
+    padding: 20px 40px;
+    border-radius: $round-lg;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	font-size: $font-size-lg;
+	font-weight: bold;
+	color: $color;
+    background: $bg-color;
+	transition:opacity 0.3s;
+	.material-icons{
+		font-size: 42px;
+		margin-right: -10px;
+	}
+	span{
+		display: inline-block;
+	}
+	&:hover{
+		opacity: 0.8;
+		transition:opacity 0.3s;
+	}
+}
+@mixin btn-md($color, $bg-color){
+	display: inline-block;
+    padding: 15px 30px;
+    border-radius: $round-md;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	font-size: $font-size-md;
+	font-weight: bold;
+	color: $color;
+    background: $bg-color;
+	transition:opacity 0.3s;
+	.material-icons{
+		font-size: 30px;
+		margin-right: -8px;
+	}
+	span{
+		display: inline-block;
+	}
+	&:hover{
+		opacity: 0.8;
+		transition:opacity 0.3s;
+	}
+}
+@mixin btn-sm($color, $bg-color){
+	display: inline-block;
+    padding: 10px 20px;
+    border-radius: $round-sm;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	font-size: $font-size-reg;
+	font-weight: bold;
+	color: $color;
+    background: $bg-color;
+	transition:opacity 0.3s;
+	.material-icons{
+		font-size: 24px;
+		margin-right: -5px;
+	}
+	span{
+		display: inline-block;
+	}
+	&:hover{
+		opacity: 0.8;
+		transition:opacity 0.3s;
+	}
+}
+@mixin btn-xsm($color, $bg-color){
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: $round-sm;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	font-size: $font-size-reg;
+	font-weight: normal;
+	color: $color;
+	background: $bg-color;
+	transition:opacity 0.3s;
+	.material-icons{
+		font-size: 24px;
+		margin-right: -5px;
+	}
+	span{
+		display: inline-block;
+	}
+	&:hover{
+		opacity: 0.8;
+		transition:opacity 0.3s;
+	}
+}
+

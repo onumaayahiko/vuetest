@@ -1,0 +1,403 @@
+/* Scss Document */
+
+
+@import "variables";
+
+
+// 2カラムレイアウト 
+@mixin layout-col2{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	> div{
+		width: 50%;
+		&:first-of-type img{
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+		&:last-of-type > div{
+			padding: 40px; 
+			max-width: calc(#{$window-size-xlg} / 2);
+		}
+	}
+}
+
+
+/* レスポンシブテーブル */
+@mixin responsive-table($width){
+	display: flex;
+	flex-wrap: wrap;
+	border-top: 1px solid #CCC;
+	> dt, > dd {
+		padding: 20px;
+		border-bottom: 1px solid #CCC;
+		border-right: 1px solid #CCC;
+	}
+	> dt {
+		width: $width;
+		background: #F5F5F5;
+		border-left: 1px solid #CCC;
+	}	
+	> dd {
+		width: -webkit-calc(100% - #{$width});
+		width: calc(100% - #{$width});
+	}
+}
+
+@mixin responsive-table-sm{
+	border: none;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	> dt, > dd {
+		display: block;
+		width: 100%;
+		padding: 10px;
+		border: none;	
+	}
+	> dt {
+		background: #F5F5F5;
+		border-top: 1px solid #CCC;
+		border-bottom: 1px solid #CCC;
+		text-align: center;
+		letter-spacing: 0.5em;
+		padding: 5px 0;
+	}
+	> dd {
+		margin-bottom: 15px;
+	}
+}
+
+
+/* カードレイアウト */
+@mixin layout-card-col2{
+	display: flex;
+	flex-wrap: wrap;
+	li{
+		width: 48%;
+		margin: 4% 4% 0 0;
+		padding-bottom: 60px;
+		&:nth-child(even){
+			margin-right: 0;
+		}
+		position: relative;
+		box-shadow: 2px 2px 10px 0 rgba(0, 0 , 0, 0.2);
+		background: white;
+		> img{
+			width: 100%;
+		}
+		> div{
+			margin: 20px;
+			h3 {
+				font-size: $font-size-lg;
+			}
+		}
+		> a{
+			position: absolute;
+			left: 50%;
+			bottom: 30px;
+			transform: translateX(-50%);
+		}
+	}
+	@media screen and (max-width: $window-size-sm) {
+		li{
+			width: 100%;
+			margin: 30px 0 0 0;
+			> div{
+				margin: 15px;
+			}
+		}
+	}
+}
+
+
+
+/* コンテンツカード */
+@mixin content-card{
+	/*width: 100%;
+	li{
+		display: inline-block;
+		a{
+			display: block;
+			width: 100%;
+			padding: 60px 0;
+			text-align: center;
+			background: #CCC;
+			&:hover{
+				opacity: 0.7;
+			}
+		}
+	}*/
+}
+
+/*
+14px bold padding(10 20)
+18px bold padding(15 30)
+25px bold padding(20 40)
+*/
+
+
+
+
+
+/* ボタン */
+/* ボタンサイズ大（縦56px） */
+/* btn-lg(ボーダー幅, ラウンド半径) */
+@mixin btn-lg($border, $round){
+	display: inline-block;
+	padding: 0px calc(4px - #{$border} + #{$round});
+    border-radius: $round;
+	font-size: 15px;
+	font-weight: bold;
+	height: 56px;
+	line-height: calc(56px - #{$border});
+	border: $border solid;
+	vertical-align: middle;
+	span{
+		display: inline-block;
+	}
+	.material-symbols-rounded {
+		font-variation-settings:
+		'FILL' 0,
+		'wght' 700,
+		'GRAD' 0,
+		'opsz' 48;
+		font-size:  20px;
+		margin-right: 5px;
+		vertical-align: -5px;
+	}
+	.icon{
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		vertical-align: -5px;
+	}
+}
+/* ボタンサイズ中（縦40px） */
+/* btn-md(ボーダー幅, ラウンド半径) */
+@mixin btn-md($border, $round){
+	display: inline-block;
+	padding: 0px calc(4px - #{$border} + #{$round});
+    border-radius: $round;
+	font-size: 15px;
+	font-weight: bold;
+	height: 40px;
+	line-height: calc(40px - #{$border});
+	border: $border solid;
+	vertical-align: middle;
+	span{
+		display: inline-block;
+	}
+	.material-symbols-rounded {
+		font-variation-settings:
+		'FILL' 0,
+		'wght' 700,
+		'GRAD' 0,
+		'opsz' 48;
+		font-size:  20px;
+		margin-right: 5px;
+		vertical-align: -5px;
+	}
+	.icon{
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		vertical-align: -5px;
+	}
+}
+/* ボタンサイズ小（縦32px） */
+/* btn-sm(ボーダー幅, ラウンド半径) */
+@mixin btn-sm($border, $round){
+	display: inline-block;
+	padding: 0px calc(4px - #{$border} + #{$round});
+    border-radius: $round;
+	font-size: 12px;
+	font-weight: bold;
+	height: 32px;
+	line-height: calc(32px - #{$border});
+	border: $border solid;
+	vertical-align: middle;
+	span{
+		display: inline-block;
+	}
+	.material-symbols-rounded {
+		font-variation-settings:
+		'FILL' 0,
+		'wght' 700,
+		'GRAD' 0,
+		'opsz' 48;
+		font-size:  20px;
+		margin-right: 5px;
+		vertical-align: -5px;
+	}
+	.icon{
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		vertical-align: -5px;
+	}
+}
+/* ボタン色設定（単色ボタン、ボーダー付ボタン） */
+/* btn-color(文字（ボーダー）色, 背景色, トランジション色) */
+@mixin btn-color($color, $bg-color, $bg-transition-color){
+	color: $color;
+    background: $bg-color;
+	border-color:$color;
+	transition:box-shadow 1s;
+	position: relative;
+  	overflow: hidden;
+	z-index: 0;
+	&::before{
+	  	content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background: $bg-transition-color;
+		filter: opacity(0);
+		transition:filter 1s;
+	}
+	&:hover{
+		transition:box-shadow 0.3s;
+		box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+		&::before{
+			transition:filter 0.3s;
+			filter: opacity(0.5);
+		}
+	}
+	&:active{
+		transition:box-shadow 0.1s;
+		&::before{
+			transition:filter 0.1s;
+			filter: opacity(1);
+		}
+	}
+}
+/* ボタン色設定（フローティングボタン） */
+/* btn-color-float(文字（ボーダー）色, 背景色, トランジション色) */
+@mixin btn-color-float($color, $bg-color, $bg-transition-color){
+	color: $color;
+    background: $bg-color;
+	border-color:$color;
+	transition:box-shadow 1s;
+	position: relative;
+  	overflow: hidden;
+	z-index: 0;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+	&::before{
+	  	content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background: $bg-transition-color;
+		filter: opacity(0);
+		transition:filter 1s;
+	}
+	&:hover{
+		&::before{
+			transition:filter 0.3s;
+			filter: opacity(0.5);
+		}
+	}
+	&:active{
+		&::before{
+			transition:filter 0.1s;
+			filter: opacity(1);
+		}
+	}
+}
+/* ボタン色設定（枠無しボタン） */
+/* btn-color-text(文字（ボーダー）色, 背景色, トランジション色) */
+@mixin btn-color-text($color, $bg-transition-color){
+	color: $color;
+    background: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
+	position: relative;
+  	overflow: hidden;
+	z-index: 0;
+	&::before{
+	  	content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background: $bg-transition-color;
+		filter: opacity(0);
+		transition:filter 1s;
+	}
+	&:hover{
+		&::before{
+			transition:filter 0.3s;
+			filter: opacity(0.5);
+		}
+	}
+	&:active{
+		&::before{
+			transition:filter 0.1s;
+			filter: opacity(1);
+		}
+	}
+}
+
+/* タイトル */
+/* ページタイトル */
+@mixin page-title{
+	font-size: $font-size-lg;
+	margin-bottom: $font-size-lg;
+	color: $mono-dark;
+	span{
+		display: inline-block;
+	}
+	.icon{
+		width: 30px;
+		height: 30px;
+		margin-right: 5px;
+		vertical-align: -5px;
+	}
+	
+	@media screen and (max-width: $window-size-md) {
+
+	}
+	@media screen and (max-width: $window-size-sm) {
+
+	}
+}
+/* セクションタイトル */
+/* section-title(マーカー色, フォントサイズ) */
+@mixin section-title($color, $font-size){
+	font-size: $font-size;
+	margin-bottom: $font-size;
+	padding: 0 0 0 $font-size;
+	color: $mono-dark;
+	position: relative;
+	z-index: 0;
+	&::before{
+		content: "";
+		position: absolute;
+		top: -50%;
+		left: 0;
+		z-index: -1;
+		background: $color;
+		width: calc(#{$font-size}*2);
+		height: calc(#{$font-size}*2);
+		border-radius: calc(100%/5*3) calc(100%/5*2) calc(100%/5*3) calc(100%/5*2);
+	}
+	span{
+		display: inline-block;
+	}
+	
+	@media screen and (max-width: $window-size-md) {
+
+	}
+	@media screen and (max-width: $window-size-sm) {
+
+	}
+}

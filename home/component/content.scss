@@ -1,0 +1,39 @@
+/* Scss Document */
+
+
+@import "../../common/css/variables";
+@import "../../common/css/mixin";
+
+
+main {
+	background: $mono-ultralight;
+	border: 1px solid;
+
+}
+main .container {
+	background: $mono-light;
+	border: 1px solid;
+	width: 100%;
+}
+
+.section1{
+	.page-title{
+		@include page-title;
+	}
+	
+	.section-title{
+		@include section-title($pink-main7, $font-size-lg);
+	}
+	
+	.link-btn1 {
+		@include btn-md(0px, 20px);
+		@include btn-color($mono-base, $pink-main1, $pink-main4);
+
+	}
+	.link-btn2 {
+		@include btn-md(0px, 20px);
+		@include btn-color-text($pink-main1, $pink-main4);
+
+	}
+}
+

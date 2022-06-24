@@ -1,0 +1,235 @@
+/* Scss Document */
+
+
+@import "../css/variables";
+@import "../css/mixin";
+
+
+/* ヘッダー */
+header {
+/*
+	position: relative;
+	z-index: 1;
+*/
+	display: block;
+	max-width: $window-size-xlg;
+	margin: 0 auto;
+	padding: $padding-lg $padding-lg 0 $padding-lg;
+	
+	
+	background: $mono-ultralight;/* 確認用 */
+	border: 1px solid;/* 確認用 */
+	.container {
+		background: $mono-light;/* 確認用 */
+		border: 1px solid;/* 確認用 */
+		
+		position: relative;
+		width: 100%;
+	}
+	// ハンバーガーメニューボタン
+	.menu-btn {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 50px;
+		height: 50px;
+		z-index: 9999;
+		// border-radius: 30px 20px 30px 20px;
+		// background: $mono-base;
+		cursor: pointer;
+		span {
+			position: absolute;
+			top: 25px;
+			left: 15px;
+			width: 20px;
+			height: 2px;
+			margin: auto;
+			background: $mono-dark;
+			border-radius: 1px;
+			transition: top 0.3s, transform 0.3s;
+		}
+	}
+	.menu-open {
+		span:nth-of-type(1) {
+			transform: rotate(45deg);
+		}
+		span:nth-of-type(2) {
+			transform: rotate(-45deg);
+		}
+	}
+	.menu-close {
+		span:nth-of-type(1) {
+			top: 20px;
+		}
+		span:nth-of-type(2) {
+			top: 30px;
+		}
+	}
+	// ハンバーガーメニュー背景
+	.menu-bg {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: $mono-base;
+			z-index: -1;
+		}
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0,0,0,0.5);
+			z-index: -2;
+		}
+
+	}
+	.menu-bg-open {
+		&::before {
+			width: 100vw;
+			// height: 100vh;
+			height: 226px;
+			border-radius: 0;
+			transition: 0.3s;
+		}
+		&::after {
+			width: 100vw;
+			height: 100vh;
+			border-radius: 0;
+			transition: 0.3s;
+		}
+	}
+	.menu-bg-close {
+		&::before{
+			width: 50px;
+			height: 50px;
+			border-radius: 30px 20px 30px 20px;
+			transition: 0.3s 0.3s;
+		}
+		&::after {
+			opacity: 0;
+			visibility: hidden;
+			transition: 0.3s 0.3s;
+		}
+	}
+	// ナビゲーション
+	.nav-wrap {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: $margin-sm;
+		// justify-content: center;
+		justify-items: center;
+		// align-content: center;
+		text-align: center;
+	}
+	.global-nav ul{
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, auto));
+		gap: $margin-lg;
+		justify-content: center;
+		align-content: center;
+	}
+	.logo {
+		width: 100%;
+		max-width: 300px;
+	}
+	// ログインボタン
+	.right {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.login {
+		@include btn-sm(0px, 20px);
+		@include btn-color($mono-base, $pink-main1, $pink-main4);
+	}
+	
+	@media screen and (max-width: $window-size-md) {
+		padding: $padding-md $padding-md 0 $padding-md;
+		// ナビゲーション
+		.nav-wrap {
+			h1 {
+				justify-self: left;
+			}
+		}
+	}
+
+	@media screen and (max-width: $window-size-sm) {
+		padding: $padding-sm $padding-sm 0 $padding-sm;
+		// ナビゲーション
+		.nav-wrap {
+			width: 100%;
+			padding: 0 $padding-lg $padding-lg $padding-lg;
+			margin-top: 50px;
+			gap: $margin-lg;
+			justify-items: left;
+			text-align: left;
+
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 999;
+			transition: 0.3s 0.3s;
+			h1 {
+				justify-self: center;
+				order: 1;
+			}
+		}
+		.global-nav ul{
+			display: grid;
+			grid-template-columns: repeat(1, minmax(0, auto));
+			gap: $margin-xsm;
+			justify-content: flex-start;
+			align-content: center;
+		}
+		// ハンバーガーメニューボタン
+		.menu-btn {
+			display: block;
+		}
+		.menu-hide {
+			opacity: 0;
+			visibility: hidden;
+			transition: 0.3s;
+
+		}
+		// ハンバーガーメニュー背景
+		.menu-bg {
+			display: block;
+		}
+		// ログインボタン
+		.right {
+			position: relative;
+			text-align: right;
+		}
+	}
+
+}
+
+
+
+/*		display: flex;
+		flex-flow: row wrap;
+	  	align-items: center;
+	 	justify-content: space-between;*/
+		
+/*
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(0, auto));
+		gap: $margin-lg;
+		justify-content: center;
+		align-content: center;
+*/
+

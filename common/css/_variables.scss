@@ -1,0 +1,86 @@
+/* Scss Document */
+
+
+/* サイズ */
+$window-size-xlg: 1366px; // MAX
+$window-size-lg: 1366px;  // 
+$window-size-md: 960px;   // タブレット
+$window-size-sm: 520px;   // スマホ
+
+
+/* マージン */
+$margin-xlg: 80px;
+$margin-lg: 40px;
+$margin-md: 20px;
+$margin-sm:	15px;
+$margin-xsm: 5px;
+
+
+/* パディング */
+$padding-lg: 40px;
+$padding-md: 30px;
+$padding-sm: 15px;
+
+
+/* フォントサイズ */
+/* ブラウザ設定の拡大縮小対応のため「* 0.0625rem」する */
+$font-size-xlg: calc(34 * 0.0625rem);
+$font-size-lg: calc(25 * 0.0625rem);
+$font-size-md: calc(20 * 0.0625rem);
+$font-size-reg: calc(15 * 0.0625rem);
+$font-size-sm: calc(12 * 0.0625rem);
+$font-size-xsm: calc(10 * 0.0625rem);
+
+
+/* 角丸 */
+$round-lg: 15px;
+$round-md: 10px;
+$round-sm: 7px;
+
+
+/* 文字間 */
+$space-none: 0;
+$space-quater: 0.25em;
+$space-half: 0.5em;
+$space-full: 1em;
+
+
+/* カラー */
+$matec-blue: #0075C2;
+$matec-green: #009944;
+
+$pink-main1: #FF6666;
+$pink-main2: #FF7777;
+$pink-main3: #FF8888;
+$pink-main4: #FF9999;
+$pink-main5: #FFAAAA;
+$pink-main6: #FFBBBB;
+$pink-main7: #FFCCCC;
+$pink-main8: #FFDDDD;
+$pink-main9: #FFEEEE;
+
+$mono-base: #FDFDFD;
+$mono-ultralight: #EEEEEE;
+$mono-light: #CCCCCC;
+$mono-medium: #999999;
+$mono-dark: #443333;
+
+$pink-base: #FFEEEE;
+$pink-label: #FF6666;
+$pink-marker: #FF9999;
+
+$green-base: #EEFFEE;
+$green-label: #009933;
+$green-marker: #99FF99;
+
+$blue-base: #EEFFFF;
+$blue-label: #3366FF;
+$blue-marker: #99CCFF;
+
+$yellow-base: #FFFFEE;
+$yellow-caution: #FFFFCC;
+$yellow-label: #FFCC00;
+$yellow-marker: #FFFF66;
+
+$purple-base: #EEEEFF;
+$purple-marker: #CC99FF;

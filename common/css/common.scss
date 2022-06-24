@@ -1,0 +1,159 @@
+/* Scss Document */
+
+
+@import "variables";
+@import "mixin";
+
+
+//マテリアルシンボル
+.arrow_down::before{
+	content: "\e313"; //keyboard_arrow_down
+}
+.arrow::before{
+	content: "\e315"; //keyboard_arrow_right
+}
+.arrow_up::before{
+	content: "\e316"; //keyboard_arrow_up
+}
+.plus::before{
+	content: "\e145"; //add
+}
+.minus::before{
+	content: "\e15b"; //remove
+}
+.pin_drop::before{
+	content: "\e55e"; //pin_drop
+}
+.mail::before{
+	content: "\e158"; //mail
+}
+
+
+/* 全般 */
+html{
+	line-height: 150%;
+	font-family:  "Helvetica Neue",Arial, "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+	.scroll-block{
+		overflow: hidden;
+	}	
+	background: $mono-base;
+}
+body{
+	font-size: $font-size-reg;
+	overflow-x: hidden;
+}
+h2, h3, h4, h5, dt, strong{
+	font-weight: bold;
+}
+a.text-link{
+	text-decoration: underline;
+	color: $blue-label;
+	&:hover{
+		color: $pink-main1;
+	}
+}
+a:focus{
+	outline: none;
+}
+.kome{
+	text-indent: -1em;
+	padding-left: 1em;
+}
+small {
+	line-height: 1em;
+}
+// アンダーライン
+a.under-line{
+	position: relative; /*アンダーラインの位置を決めるための基準 */
+	&::before {
+		position: absolute; /*親要素であるaタグを基準に位置を指定*/
+		left: 0;            /*アンダーラインを各メニュー（aタグ）の左端に指定*/
+		bottom: -3px;       /*アンダーラインが位置する、各リストの下端からの高さ　ヘッダーの下端に合わせています*/
+		content: '';        /*本来は、擬似要素に入るテキストなどを’’内に指定。今回はアンダーラインなので何も記載しない*/
+		width: 100%;        /*アンダーラインを各aタグの幅に合わせる*/
+		height: 2px;        /*アンダーラインの高さ（太さ）*/
+		border-radius: 1px; /*アンダーラインの角丸の大きさ*/
+		background: $pink-main1;/*アンダーラインの色*/
+		transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+		transform-origin: center top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の右端*/
+		transition: transform 0.3s;   /*変形の時間*/
+	}
+	&:hover::before {
+		transform: scale(1, 1); /*ホバー後、x軸方向に1（相対値）伸長*/
+	}
+}
+
+/* コンテンツヘッダー */
+
+
+/* コンテンツ */
+main{
+/*
+	position: relative;
+	z-index: 1;
+*/
+	display: block;
+	max-width: $window-size-xlg;
+	margin: auto;
+	padding: $padding-lg;
+	@media screen and (max-width: $window-size-md) {
+		padding: $padding-md;
+	}
+	@media screen and (max-width: $window-size-sm) {
+		padding: $padding-sm;
+	}
+}
+
+
+/* パンくずリスト */
+.breadcrumb{
+/*	width: 100%;
+	line-height: 100%;
+	ol{
+		width: 100%;
+		max-width: $window-size-xlg;
+		margin: auto;
+		padding: 15px 40px;
+	}
+	li{
+		display: inline;
+		vertical-align: middle;
+	}
+	a {
+		text-decoration: underline;
+		vertical-align: middle;
+	}
+	span{
+		margin: 0 10px; 
+		font-size: 10px;
+	}*/
+}
+
+
+
+
+
+
+
+/* ページトップへ移動 */
+.page-top{
+	display: none;
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	right: 5px;
+	bottom: 5px;
+	background: $pink-main1;
+	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+	z-index: 999;
+	cursor: pointer;
+	border-radius: 25px;
+	span{
+		font-size: 34px;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		color: white;
+	}
+}
